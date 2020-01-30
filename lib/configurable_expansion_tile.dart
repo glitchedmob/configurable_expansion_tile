@@ -111,11 +111,11 @@ class ConfigurableExpansionTile extends StatefulWidget {
   static final Animatable<double> _easeOutTween =
       CurveTween(curve: Curves.easeOut);
   @override
-  _ConfigurableExpansionTileState createState() =>
-      _ConfigurableExpansionTileState();
+  ConfigurableExpansionTileState createState() =>
+      ConfigurableExpansionTileState();
 }
 
-class _ConfigurableExpansionTileState extends State<ConfigurableExpansionTile>
+class ConfigurableExpansionTileState extends State<ConfigurableExpansionTile>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _iconTurns;
@@ -159,7 +159,7 @@ class _ConfigurableExpansionTileState extends State<ConfigurableExpansionTile>
     super.dispose();
   }
 
-  void _handleTap() {
+  void handleTap() {
     setState(() {
       _isExpanded = !_isExpanded;
       if (_isExpanded) {
@@ -195,7 +195,7 @@ class _ConfigurableExpansionTileState extends State<ConfigurableExpansionTile>
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           GestureDetector(
-              onTap: _handleTap,
+              onTap: handleTap,
               child: Container(
                   color: headerColor,
                   child: Row(
